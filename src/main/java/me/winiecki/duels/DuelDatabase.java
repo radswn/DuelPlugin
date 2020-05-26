@@ -1,6 +1,6 @@
 package me.winiecki.duels;
 
-import org.bukkit.inventory.Inventory;
+import org.bukkit.inventory.ItemStack;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -13,6 +13,6 @@ public class DuelDatabase {
     public static List<String> fightingPlayers = new ArrayList<>();
     public static List<Duel> currentDuels = new ArrayList<>();
     public static List<Duel> duelsHistory = new ArrayList<>();
-    public static Map<String, Inventory> temporaryEqHolder = new HashMap<>();
+    public static Map<String, ItemStack[]> temporaryEqHolder = new HashMap<>();
 
 }

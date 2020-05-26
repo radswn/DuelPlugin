@@ -101,8 +101,11 @@ public class Duel {
 
         }
 
-        Objects.requireNonNull(Bukkit.getPlayer(getPlayer())).getInventory().setContents(DuelDatabase.temporaryEqHolder.get(getPlayer()).getContents());
-        Objects.requireNonNull(Bukkit.getPlayer(getEnemy())).getInventory().setContents(DuelDatabase.temporaryEqHolder.get(getEnemy()).getContents());
+        Objects.requireNonNull(Bukkit.getPlayer(getPlayer())).getInventory().setContents(DuelDatabase.temporaryEqHolder.get(getPlayer()));
+        Objects.requireNonNull(Bukkit.getPlayer(getEnemy())).getInventory().setContents(DuelDatabase.temporaryEqHolder.get(getEnemy()));
+
+        DuelDatabase.temporaryEqHolder.remove(getPlayer());
+        DuelDatabase.temporaryEqHolder.remove(getEnemy());
 
 
         clearSnowmen(deadPlayer.getNearbyEntities(30, 15, 30));
