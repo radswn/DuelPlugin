@@ -101,6 +101,10 @@ public class Duel {
 
         }
 
+        Objects.requireNonNull(Bukkit.getPlayer(getPlayer())).getInventory().setContents(DuelDatabase.temporaryEqHolder.get(getPlayer()).getContents());
+        Objects.requireNonNull(Bukkit.getPlayer(getEnemy())).getInventory().setContents(DuelDatabase.temporaryEqHolder.get(getEnemy()).getContents());
+
+
         clearSnowmen(deadPlayer.getNearbyEntities(30, 15, 30));
         clearAllLists(iterator);
         sendDuelInfo(false, deadPlayer);
@@ -121,7 +125,7 @@ public class Duel {
 
                 Mob snowman = (Mob) entity;
 
-                if ((snowman.getTarget().getName().equals(getPlayer())) ||
+                if ((Objects.requireNonNull(snowman.getTarget()).getName().equals(getPlayer())) ||
                         (snowman.getTarget().getName().equals(getEnemy()))) {
                     snowman.setHealth(0);
                 }

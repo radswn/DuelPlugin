@@ -58,6 +58,12 @@ public class DuelCommand implements CommandExecutor {
                             DuelDatabase.fightingPlayers.add(playerName);
                             DuelDatabase.fightingPlayers.add(enemyName);
 
+                            DuelDatabase.temporaryEqHolder.put(playerName, player.getInventory());
+                            DuelDatabase.temporaryEqHolder.put(enemyName, enemy.getInventory());
+
+                            player.getInventory().clear();
+                            enemy.getInventory().clear();
+
                             Duel duel = new Duel(playerName, enemyName, LocalDateTime.now());
                             DuelDatabase.currentDuels.add(duel);
 
