@@ -2,10 +2,13 @@ package me.winiecki.duels;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.Material;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Mob;
 import org.bukkit.entity.Player;
 import org.bukkit.entity.Snowman;
+import org.bukkit.inventory.Inventory;
+import org.bukkit.inventory.ItemStack;
 
 import java.time.LocalDateTime;
 import java.util.Iterator;
@@ -101,16 +104,31 @@ public class Duel {
 
         }
 
-        Objects.requireNonNull(Bukkit.getPlayer(getPlayer())).getInventory().setContents(DuelDatabase.temporaryEqHolder.get(getPlayer()));
-        Objects.requireNonNull(Bukkit.getPlayer(getEnemy())).getInventory().setContents(DuelDatabase.temporaryEqHolder.get(getEnemy()));
-
-        DuelDatabase.temporaryEqHolder.remove(getPlayer());
-        DuelDatabase.temporaryEqHolder.remove(getEnemy());
-
-
         clearSnowmen(deadPlayer.getNearbyEntities(30, 15, 30));
         clearAllLists(iterator);
+        clearInventories();
         sendDuelInfo(false, deadPlayer);
+
+    }
+
+    private void clearInventories(){
+
+        Inventory playerInventory = Bukkit.getPlayer(getPlayer()).getInventory();
+        Inventory enemyInventory = Bukkit.getPlayer(getEnemy()).getInventory();
+
+        for(ItemStack item: playerInventory){
+
+            if(item.getType().equals(Material.BOW)&& Objects.requireNonNull(item.getItemMeta()).getLore() != null)
+                playerInventory.remove(item);
+
+        }
+
+        for(ItemStack item: enemyInventory){
+
+            if(item.getType().equals(Material.BOW)&& Objects.requireNonNull(item.getItemMeta()).getLore() != null)
+                enemyInventory.remove(item);
+
+        }
 
     }
 

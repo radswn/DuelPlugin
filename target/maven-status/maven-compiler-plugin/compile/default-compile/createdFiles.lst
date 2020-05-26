@@ -1,7 +1,6 @@
 me\winiecki\itemModels\bows\TNTBow.class
 me\winiecki\commands\DuelCommand.class
 me\winiecki\itemModels\bows\TeleportBow.class
-me\winiecki\events\duelEvents\OnPlayerAfterDuelRespawnEvent.class
 me\winiecki\duels\DuelDatabase.class
 me\winiecki\itemModels\gui\TNTBowGUIItem.class
 me\winiecki\commands\DuelStatsCommand.class
