@@ -1,0 +1,11 @@
+name: DuelPlugin
+version: 1.0
+main: me.winiecki.DuelPlugin
+api-version: 1.13
+commands:
+  duel:
+    description: 'challenge a player to a duel'
+    usage: /<command>
+  duelstats:
+    description: 'check your all-time Duel stats'
+    usage: /<command>
