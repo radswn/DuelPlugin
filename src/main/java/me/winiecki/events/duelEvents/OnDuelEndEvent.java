@@ -23,8 +23,9 @@ public class OnDuelEndEvent implements Listener {
 
                 Duel d = it.next();
                 d.finishDuelIfTheNameMatches(deadPlayer, it);
-
             }
+
+            e.getDrops().clear();
 
         }
 

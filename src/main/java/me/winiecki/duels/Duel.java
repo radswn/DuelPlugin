@@ -63,11 +63,10 @@ public class Duel {
     @Override
     public String toString() {
 
-        if(duelResult.equals(DuelResult.PLAYER_WON)){
-            return ChatColor.GOLD + "Duel: " + ChatColor.GREEN +  player +  ChatColor.GOLD + " VS " + ChatColor.RED + enemy + ChatColor.GOLD + " time: " + duelTime;
-        }
-        else {
-            return ChatColor.GOLD + "Duel: " + ChatColor.RED + player +  ChatColor.GOLD + " VS " + ChatColor.GREEN + enemy + ChatColor.GOLD + " time: " + duelTime;
+        if (duelResult.equals(DuelResult.PLAYER_WON)) {
+            return ChatColor.GOLD + "Duel: " + ChatColor.GREEN + player + ChatColor.GOLD + " VS " + ChatColor.RED + enemy + ChatColor.GOLD + " time: " + duelTime;
+        } else {
+            return ChatColor.GOLD + "Duel: " + ChatColor.RED + player + ChatColor.GOLD + " VS " + ChatColor.GREEN + enemy + ChatColor.GOLD + " time: " + duelTime;
         }
 
     }
@@ -96,39 +95,27 @@ public class Duel {
 
             setDuelResult(DuelResult.ENEMY_WON);
             sendDuelInfo(true, Bukkit.getPlayer(getEnemy()));
+            restoreInventory(getEnemy());
 
         } else if (deadPlayer.getName().equals(getEnemy())) {
 
             setDuelResult(DuelResult.PLAYER_WON);
             sendDuelInfo(true, Bukkit.getPlayer(getPlayer()));
-
+            restoreInventory(getPlayer());
         }
+
 
         clearSnowmen(deadPlayer.getNearbyEntities(30, 15, 30));
         clearAllLists(iterator);
-        clearInventories();
         sendDuelInfo(false, deadPlayer);
 
     }
 
-    private void clearInventories(){
 
-        Inventory playerInventory = Bukkit.getPlayer(getPlayer()).getInventory();
-        Inventory enemyInventory = Bukkit.getPlayer(getEnemy()).getInventory();
+    private void restoreInventory(String playerName) {
 
-        for(ItemStack item: playerInventory){
-
-            if(item.getType().equals(Material.BOW)&& Objects.requireNonNull(item.getItemMeta()).getLore() != null)
-                playerInventory.remove(item);
-
-        }
-
-        for(ItemStack item: enemyInventory){
-
-            if(item.getType().equals(Material.BOW)&& Objects.requireNonNull(item.getItemMeta()).getLore() != null)
-                enemyInventory.remove(item);
-
-        }
+        Bukkit.getPlayer(playerName).getInventory().setContents(DuelDatabase.temporaryEqHolder.get(playerName));
+        DuelDatabase.temporaryEqHolder.remove(playerName);
 
     }
 
