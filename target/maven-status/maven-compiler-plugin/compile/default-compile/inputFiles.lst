@@ -4,6 +4,7 @@ C:\Users\Radek\Projekty\Java\Minecraft Plugins\duelPlugin\src\main\java\me\winie
 C:\Users\Radek\Projekty\Java\Minecraft Plugins\duelPlugin\src\main\java\me\winiecki\itemModels\bows\FreezingBow.java
 C:\Users\Radek\Projekty\Java\Minecraft Plugins\duelPlugin\src\main\java\me\winiecki\itemModels\gui\TNTBowGUIItem.java
 C:\Users\Radek\Projekty\Java\Minecraft Plugins\duelPlugin\src\main\java\me\winiecki\commands\DuelStatsCommand.java
+C:\Users\Radek\Projekty\Java\Minecraft Plugins\duelPlugin\src\main\java\me\winiecki\events\duelEvents\OnPlayerRespawnAfterDuelEvent.java
 C:\Users\Radek\Projekty\Java\Minecraft Plugins\duelPlugin\src\main\java\me\winiecki\events\fightEvents\OnSnowmanDeathEvent.java
 C:\Users\Radek\Projekty\Java\Minecraft Plugins\duelPlugin\src\main\java\me\winiecki\events\duelEvents\OnDuelEndEvent.java
 C:\Users\Radek\Projekty\Java\Minecraft Plugins\duelPlugin\src\main\java\me\winiecki\commands\DuelCommand.java

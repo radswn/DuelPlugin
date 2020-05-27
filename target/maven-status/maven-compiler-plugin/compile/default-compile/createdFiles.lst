@@ -18,6 +18,7 @@ me\winiecki\events\duelEvents\OnWeaponChooseEvent$1.class
 me\winiecki\itemModels\gui\GUIItem.class
 me\winiecki\events\duelEvents\OnWeaponChooseEvent.class
 me\winiecki\itemModels\gui\FireBowGUIItem.class
+me\winiecki\events\duelEvents\OnPlayerRespawnAfterDuelEvent.class
 me\winiecki\events\fightEvents\OnSnowballHitPlayerEvent.class
 me\winiecki\itemModels\bows\FreezingBow.class
 me\winiecki\events\duelEvents\OnDuelEndEvent.class
